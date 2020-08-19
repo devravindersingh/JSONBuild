@@ -25,12 +25,14 @@ public class JsonHelper {
 
 	public List<RequestItem> getRetrList(String tableName, String outputParam) {
 		List<MetaTableData> metaList = crudRepo.findByTableName(tableName);
-		List<RequestItem> retrList = new ArrayList<>();
-		List<String> outputParamList = Arrays.asList(outputParam.split(","));
-		metaList = metaList.stream()
-				.filter(mtl -> outputParamList.stream().
-						anyMatch(ol -> mtl.getField().equals(ol)))
-				.collect(Collectors.toList());
+		List<RequestItem> retrList = new ArrayList<RequestItem>();
+		if(!outputParam.isEmpty() && !outputParam.equals("*")) {
+			List<String> outputParamList = Arrays.asList(outputParam.split(","));
+			metaList = metaList.stream()
+					.filter(mtl -> outputParamList.stream().
+							anyMatch(ol -> mtl.getField().equals(ol)))
+					.collect(Collectors.toList());
+		}
 		
 		retrList = metaList.stream().map(mtl -> {
 						RequestItem reqI = new RequestItem(mtl.getField(), "", mtl.getType());

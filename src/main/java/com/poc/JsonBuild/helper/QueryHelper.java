@@ -34,7 +34,7 @@ public class QueryHelper {
 		List<String> paramList = Arrays.asList(inputParam.split(",")).stream()
         	    .map(s -> new String(""+s + "=:" + s))
         	    .collect(Collectors.toList());
-        String wherePart = String.join(" And", paramList);
+        String wherePart = String.join(" And ", paramList);
 		whereFinal = String.join(" ", whereFinal, wherePart);
 		return whereFinal;
 	}
