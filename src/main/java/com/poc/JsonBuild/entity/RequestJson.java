@@ -1,20 +1,20 @@
 package com.poc.JsonBuild.entity;
 
 public class RequestJson {
-	private String inputParam;
-	private String outputParam;
+	private String whereClause;
+	private String selectParams;
 	private String tableName;
-	public String getInputParam() {
-		return inputParam;
+	public String getWhereClause() {
+		return whereClause;
 	}
-	public void setInputParam(String inputParam) {
-		this.inputParam = inputParam;
+	public void setWhereClause(String whereClause) {
+		this.whereClause = whereClause;
 	}
-	public String getOutputParam() {
-		return outputParam;
+	public String getSelectParams() {
+		return selectParams;
 	}
-	public void setOutputParam(String outputParam) {
-		this.outputParam = outputParam;
+	public void setSelectParams(String selectParams) {
+		this.selectParams = selectParams;
 	}
 	public String getTableName() {
 		return tableName;
@@ -22,15 +22,10 @@ public class RequestJson {
 	public void setTableName(String tableName) {
 		this.tableName = tableName;
 	}
-	
 	public RequestJson() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public String toString() {
-		return "RequestItem [inputParam=" + inputParam + ", outputParam=" + outputParam + ", tableName=" + tableName
-				+ "]";
-	}
+	
 	
 }

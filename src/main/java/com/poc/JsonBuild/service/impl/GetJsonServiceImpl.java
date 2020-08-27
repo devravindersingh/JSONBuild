@@ -21,6 +21,9 @@ public class GetJsonServiceImpl implements GetJsonService {
 	@Autowired
 	private JsonHelper jsonHelper;
 	
+	@Autowired
+	private QueryHelper queryHelper;
+	
 	@Override
 	public ResponseEntity<ResponseJson> createJsonService(RequestJson req) {
 
@@ -29,9 +32,9 @@ public class GetJsonServiceImpl implements GetJsonService {
 		String returnType = "";
 
 		appId = String.join("_", "GET", req.getTableName(), "SQL");
-		query = QueryHelper.getQuery(req.getInputParam(), req.getOutputParam(), req.getTableName());
-		returnType = jsonHelper.getReturnType(req.getOutputParam());
-		List<RequestItem> retrList = jsonHelper.getRetrList(req.getTableName(), req.getOutputParam());
+		query = queryHelper.getQuery(req.getWhereClause(), req.getSelectParams(), req.getTableName());
+		returnType = jsonHelper.getReturnType(req.getSelectParams());
+		List<RequestItem> retrList = jsonHelper.getRetrList(req.getTableName(), req.getSelectParams());
 		ResponseJson respJson = new ResponseJson();
 		respJson.setAppId(appId);
 		respJson.setQuery(query);
