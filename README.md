@@ -17,7 +17,7 @@ Importing project in STS/Eclipse as Maven project. This will install all the dep
 * This project works on MySQL
 * You can make it work with other databases aswell.
 * Add required DB dependency in Pom.xml
-* Modify Datasource bean in JsonConfig asper the db in config Package.
+* Modify Datasource bean in JDBCcnfig as per the db in config Package.
 * Select query used only returns 1st row. So change it aswell as per your db.
 
  
